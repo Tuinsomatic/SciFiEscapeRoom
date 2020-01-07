@@ -9,9 +9,15 @@ public class PuzzlePiece : MonoBehaviour
 
     void OnMouseOver()
     {
+        GetComponent<Light>().range = 2;
         if (Input.GetMouseButtonDown(0))
         {
             main.selectedPiece = thisPiece;
         }
+    }
+
+    private void OnMouseExit()
+    {
+        GetComponent<Light>().range = 0;
     }
 }

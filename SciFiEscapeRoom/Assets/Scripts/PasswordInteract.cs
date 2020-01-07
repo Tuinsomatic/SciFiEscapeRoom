@@ -17,6 +17,9 @@ public class PasswordInteract : MonoBehaviour
     bool debounce = false;
     bool complete = false;
 
+    public DoorOpen doorPanel1;
+    public DoorOpen doorPanel2;
+
     void Start()
     {
         img.color = Color.clear;
@@ -184,6 +187,8 @@ public class PasswordInteract : MonoBehaviour
             active = false;
             position = 1;
             complete = true;
+            doorPanel1.animator.SetBool("codeCorrect", true);
+            doorPanel2.animator.SetBool("codeCorrect", true);
         }
     }
 

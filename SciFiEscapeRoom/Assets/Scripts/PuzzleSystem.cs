@@ -15,6 +15,8 @@ public class PuzzleSystem : MonoBehaviour
     public PuzzleSlot s8;
     public PuzzleSlot s9;
 
+    public DoorOpen panel;
+
     void Start()
     {
         selectedPiece = null;
@@ -24,7 +26,7 @@ public class PuzzleSystem : MonoBehaviour
     {
         if (s1.done == true && s2.done == true && s3.done == true && s4.done == true && s5.done == true && s6.done == true && s7.done == true && s8.done == true && s9.done == true)
         {
-            print("SUCCESS");
+            panel.animator.SetBool("puzzleComplete", true);
         }
     }
 }
