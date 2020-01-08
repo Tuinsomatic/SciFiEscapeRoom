@@ -13,6 +13,7 @@ public class PuzzlePiece : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             main.selectedPiece = thisPiece;
+            GetComponent<AudioSource>().Play();
         }
     }
 

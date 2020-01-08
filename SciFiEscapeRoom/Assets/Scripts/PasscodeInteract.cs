@@ -14,7 +14,11 @@ public class PasscodeInteract : MonoBehaviour
     int position;
     string letter = "_";
     bool debounce = false;
-    bool complete = false;
+    public bool complete = false;
+
+    [SerializeField] AudioSource doorSound;
+    [SerializeField] AudioSource beepSound;
+    public AudioSource outro;
 
     public DoorOpen doorPanel1;
     public DoorOpen doorPanel2;
@@ -67,6 +71,10 @@ public class PasscodeInteract : MonoBehaviour
         {
             if (debounce == false)
             {
+                if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetKeyUp(KeyCode.Alpha2) || Input.GetKeyUp(KeyCode.Alpha3) || Input.GetKeyUp(KeyCode.Alpha4) || Input.GetKeyUp(KeyCode.Alpha5) || Input.GetKeyUp(KeyCode.Alpha6) || Input.GetKeyUp(KeyCode.Alpha7) || Input.GetKeyUp(KeyCode.Alpha8) || Input.GetKeyUp(KeyCode.Alpha9))
+                {
+                    beepSound.Play();
+                }
                 if (Input.anyKey)
                 {
                     debounce = true;
@@ -134,7 +142,7 @@ public class PasscodeInteract : MonoBehaviour
                 }
             }
         }
-        if (inp1.GetComponent<Text>().text == "7" && inp2.GetComponent<Text>().text == "3" && inp3.GetComponent<Text>().text == "1" && inp4.GetComponent<Text>().text == "6")
+        if (inp1.GetComponent<Text>().text == "7" && inp2.GetComponent<Text>().text == "3" && inp3.GetComponent<Text>().text == "1" && inp4.GetComponent<Text>().text == "6" && complete == false)
         {
             img.color = Color.clear;
             inp1.GetComponent<Text>().color = Color.clear;
@@ -146,6 +154,8 @@ public class PasscodeInteract : MonoBehaviour
             complete = true;
             doorPanel1.animator.SetBool("codeCorrect", true);
             doorPanel2.animator.SetBool("codeCorrect", true);
+            doorSound.Play();
+            outro.Play();
         }
     }
 

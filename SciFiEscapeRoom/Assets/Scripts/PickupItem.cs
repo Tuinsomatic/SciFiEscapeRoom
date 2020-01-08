@@ -5,11 +5,14 @@ using UnityEngine;
 public class PickupItem : MonoBehaviour
 {
     public float z;
+    public bool moved = false;
+
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
             transform.position = new Vector3(-6.177f, 0.09f, z);
+            moved = true;
         }
     }
 }

@@ -17,6 +17,9 @@ public class PuzzleSystem : MonoBehaviour
 
     public DoorOpen panel;
 
+    bool audioPlayed = false;
+    [SerializeField] AudioSource sound;
+
     void Start()
     {
         selectedPiece = null;
@@ -24,9 +27,11 @@ public class PuzzleSystem : MonoBehaviour
 
     private void Update()
     {
-        if (s1.done == true && s2.done == true && s3.done == true && s4.done == true && s5.done == true && s6.done == true && s7.done == true && s8.done == true && s9.done == true)
+        if (s1.done == true && s2.done == true && s3.done == true && s4.done == true && s5.done == true && s6.done == true && s7.done == true && s8.done == true && s9.done == true && audioPlayed == false)
         {
             panel.animator.SetBool("puzzleComplete", true);
+            sound.Play();
+            audioPlayed = true;
         }
     }
 }

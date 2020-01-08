@@ -5,6 +5,9 @@ using UnityEngine;
 public class Blink : MonoBehaviour
 {
     public Light lightSource;
+    [SerializeField] float time;
+    [SerializeField] float strength;
+
     private void Start()
     {
         StartCoroutine("Switch");
@@ -15,9 +18,9 @@ public class Blink : MonoBehaviour
         for(; ; )
         {
             lightSource.range = 0;
-            yield return new WaitForSeconds(1);
-            lightSource.range = 8.53f;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(time);
+            lightSource.range = strength;
+            yield return new WaitForSeconds(time);
         }
     }
 }
