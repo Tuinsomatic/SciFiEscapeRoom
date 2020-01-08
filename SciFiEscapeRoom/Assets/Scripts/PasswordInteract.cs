@@ -35,6 +35,7 @@ public class PasswordInteract : MonoBehaviour
 
     private void OnMouseOver()
     {
+        GetComponent<Light>().range = 2;
         if (Input.GetMouseButtonDown(0) && complete == false)
         {
             img.color = Color.white;
@@ -44,6 +45,11 @@ public class PasswordInteract : MonoBehaviour
             inp4.GetComponent<Text>().color = Color.black;
             active = true;
         }
+    }
+
+    private void OnMouseExit()
+    {
+        GetComponent<Light>().range = 0;
     }
 
     private void Update()

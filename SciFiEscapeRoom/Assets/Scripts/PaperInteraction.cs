@@ -15,10 +15,16 @@ public class PaperInteraction : MonoBehaviour
 
     private void OnMouseOver()
     {
+        GetComponent<Light>().range = 2;
         if (Input.GetMouseButtonDown(0))
         {
             img.color = Color.white;
         }
+    }
+
+    private void OnMouseExit()
+    {
+        GetComponent<Light>().range = 0;
     }
 
     private void Update()
